@@ -23,9 +23,9 @@ const { title = "Luna Martello — Hospitalidad & Web" } = Astro.props;
   <body>
     <nav id="navbar">
       <div class="nav-inner container">
-        <a class="nav-logo mono" href="#index"
-          >LM<span class="neon-dot">.</span></a
-        >
+        <a class="nav-logo" href="#index">
+          <img src="/public/Lunam.png" alt="Luna Martello" height="65" />
+        </a>
         <button class="hamburger" id="hamburger" aria-label="Menú">
           <span></span><span></span><span></span>
         </button>
@@ -35,7 +35,8 @@ const { title = "Luna Martello — Hospitalidad & Web" } = Astro.props;
           <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
           <li>
             <a href="#contacto" class="nav-link btn btn-primary nav-cta"
-              >Contacto</a>
+              >Contacto</a
+            >
           </li>
         </ul>
       </div>
@@ -167,7 +168,9 @@ const { title = "Luna Martello — Hospitalidad & Web" } = Astro.props;
     .hamburger {
       display: flex;
     }
-
+    .nav-logo img {
+      height: 38px;
+    }
     .nav-links {
       position: fixed;
       top: 68px;
@@ -204,6 +207,7 @@ const { title = "Luna Martello — Hospitalidad & Web" } = Astro.props;
     .nav-cta {
       margin: 0.5rem auto 0;
       display: inline-flex;
+      padding: 14px 40px;
     }
 
     .footer-inner {
