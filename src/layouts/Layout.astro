@@ -1,0 +1,235 @@
+---
+import "../styles/global.css";
+const { title = "Luna Martello — Hospitalidad & Web" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Luna Martello — Superanfitriona Airbnb y desarrolladora web freelance. Busco oportunidades part-time en hotelería en Buenos Aires."
+    />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner container">
+        <a class="nav-logo mono" href="#index"
+          >LM<span class="neon-dot">.</span></a
+        >
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#index" class="nav-link">Inicio</a></li>
+          <li><a href="#about" class="nav-link">Sobre mí</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li>
+            <a href="#contacto" class="nav-link btn btn-primary nav-cta"
+              >Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <slot />
+
+    <footer>
+      <div class="container footer-inner">
+        <span class="mono" style="font-size:0.8rem; color:var(--muted);"
+          >© 2026 Luna Martello</span
+        >
+        <span class="mono" style="font-size:0.8rem; color:var(--muted);"
+          >Argentina</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* ── Nav ── */
+  #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition:
+      background 0.3s,
+      box-shadow 0.3s;
+    background: transparent;
+  }
+
+  #navbar.scrolled {
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--bark);
+    letter-spacing: 0.05em;
+  }
+
+  .neon-dot {
+    color: var(--neon-dim);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--bark);
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-link:not(.btn)::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--amber);
+    transition: width 0.25s ease;
+  }
+  .nav-link:not(.btn):hover::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    padding: 9px 20px;
+    font-size: 0.85rem;
+    color: #fff !important;
+  }
+  .nav-cta:hover {
+    background: var(--bark) !important;
+    color: #fff !important;
+  }
+
+  /* ── Hamburger ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--bark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0 1.5rem;
+      transform: translateY(-120%);
+      opacity: 0;
+      transition:
+        transform 0.35s ease,
+        opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .nav-links.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+    }
+    .nav-link {
+      display: block;
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+    .nav-cta {
+      margin: 0.5rem auto 0;
+      display: inline-flex;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    nav?.classList.toggle("scrolled", window.scrollY > 20);
+  });
+
+  // Hamburger
+  const btn = document.getElementById("hamburger");
+  const links = document.getElementById("nav-links");
+  btn?.addEventListener("click", () => {
+    links?.classList.toggle("open");
+  });
+
+  // Close on link click
+  document.querySelectorAll(".nav-link").forEach((l) => {
+    l.addEventListener("click", () => links?.classList.remove("open"));
+  });
+</script>
