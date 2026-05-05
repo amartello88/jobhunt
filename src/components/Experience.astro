@@ -10,8 +10,8 @@
     </h2>
     <hr class="divider" />
 
+    <!-- Fila superior: 2 cards -->
     <div class="exp-grid">
-      <!-- Airbnb card grande -->
       <div class="exp-card exp-main">
         <div class="exp-card-top">
           <div class="exp-icon">🏡</div>
@@ -28,85 +28,74 @@
         </div>
         <p class="exp-desc">
           Gestión integral de propiedad: atención al huésped, comunicación
-          proactiva, limpieza profunda entre estadías, mantenimiento,
-          optimización de precios y calendario, resolución de imprevistos.
-          Superanfitriona por consistencia en calidad y respuesta.
+          proactiva, mantenimiento, optimización de precios y calendario,
+          resolución de imprevistos. Superanfitriona por consistencia en calidad
+          y respuesta.
         </p>
         <div class="exp-tags">
           <span class="exp-tag">Atención al huésped</span>
           <span class="exp-tag">Gestión de reservas</span>
           <span class="exp-tag">Check-in / Check-out</span>
-          <span class="exp-tag">Limpieza profunda</span>
           <span class="exp-tag">Comunicación multicultural</span>
           <span class="exp-tag">Resolución de problemas</span>
         </div>
-
-        <div class="reviews-strip">
-          <div class="review-bubble">
-            "Increíble anfitriona, todo perfecto ✨"
-          </div>
-          <div class="review-bubble">
-            "Muy atenta y detallista, 100% recomendada"
-          </div>
-          <div class="review-bubble">
-            "Nos sentimos en casa desde el primer momento"
-          </div>
-        </div>
       </div>
 
-      <!-- Cards secundarias -->
-      <div class="exp-side">
-        <div class="exp-card exp-small">
-          <div class="exp-icon-sm">💻</div>
-          <h3 class="exp-role display" style="font-size:1.3rem;">
-            Desarrolladora Web Freelance
-          </h3>
-          <p class="exp-company mono">
-            Full Stack · Proyectos propios y de clientes
-          </p>
-          <p class="exp-desc">
-            Diseño y desarrollo de sitios web en Astro, HTML/CSS y JavaScript.
-            Especialidad en landing pages, portfolios y sitios para pymes y
-            emprendedores. Proyectos activos: portfolio fotográfico, sitios de
-            turismo, landings de servicios.
-          </p>
-          <div class="exp-tags">
-            <span
-              class="exp-tag mono"
-              style="background:var(--neon);border-color:var(--neon-dim);"
-              >Astro</span
-            >
-            <span class="exp-tag mono">HTML · CSS · JS</span>
-            <span class="exp-tag">Diseño responsive</span>
-            <span class="exp-tag">Freelance activo</span>
-          </div>
+      <div class="exp-card exp-small">
+        <div class="exp-icon-sm">💻</div>
+        <h3 class="exp-role display" style="font-size:1.3rem;">
+          Desarrolladora Web Freelance
+        </h3>
+        <p class="exp-company mono">
+          Full Stack · Proyectos propios y de clientes
+        </p>
+        <p class="exp-desc">
+          Diseño y desarrollo de sitios web en Astro, HTML/CSS y JavaScript.
+          Especialidad en landing pages, portfolios y sitios para pymes y
+          emprendedores. Proyectos activos: portfolio fotográfico, sitios de
+          turismo, landings de servicios.
+        </p>
+        <div class="exp-tags">
+          <span
+            class="exp-tag mono"
+            style="background:var(--neon);border-color:var(--neon-dim);"
+            >Astro</span
+          >
+          <span class="exp-tag mono">HTML · CSS · JS</span>
+          <span class="exp-tag">Diseño responsive</span>
+          <span class="exp-tag">Freelance activo</span>
         </div>
+      </div>
+    </div>
 
-        <div class="exp-card exp-small exp-availability">
-          <div class="avail-header">
-            <span class="neon-tag">✦ Busco trabajo</span>
-          </div>
+    <!-- Fila inferior: card marrón a ancho completo -->
+    <div class="exp-card exp-availability exp-full">
+      <div class="avail-inner">
+        <div>
+          <span class="neon-tag" style="font-size:0.95rem; padding: 6px 14px;"
+            >✦ Busco trabajo</span
+          >
           <h3
             class="display"
-            style="font-size:1.4rem; color:var(--bark); margin: 1rem 0 0.5rem;"
+            style="font-size:2rem; color:#e8a0a8; margin: 1rem 0 0.5rem; line-height:1.2;"
           >
             ¿Qué ofrezco?
           </h3>
-          <ul class="avail-list">
-            <li>✓ Disponibilidad <strong>part-time</strong></li>
-            <li>✓ Cobertura de <strong>francos</strong></li>
-            <li>✓ Flexibilidad horaria</li>
-            <li>✓ Actitud proactiva y resolutiva</li>
-            <li>✓ Experiencia comprobable en hospitalidad</li>
-          </ul>
-          <a
-            href="#contacto"
-            class="btn btn-primary"
-            style="margin-top:1.5rem; width:100%; justify-content:center;"
-          >
-            Hablemos →
-          </a>
         </div>
+        <ul class="avail-list">
+          <li>✓ Disponibilidad <strong>part-time</strong></li>
+          <li>✓ Cobertura de <strong>francos</strong></li>
+          <li>✓ Flexibilidad horaria</li>
+          <li>✓ Actitud proactiva y resolutiva</li>
+          <li>✓ Experiencia comprobable en hospitalidad</li>
+        </ul>
+        <a
+          href="#contacto"
+          class="btn btn-primary"
+          style="align-self:center; padding: 0.75rem 2.5rem;"
+        >
+          Hablemos →
+        </a>
       </div>
     </div>
   </div>
@@ -122,6 +111,7 @@
     grid-template-columns: 1.1fr 0.9fr;
     gap: 2rem;
     margin-top: 3rem;
+    align-items: start;
   }
 
   .exp-card {
@@ -193,34 +183,8 @@
     background: var(--sand);
   }
 
-  /* Reviews */
-  .reviews-strip {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .review-bubble {
-    background: var(--sand);
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 0.85rem;
-    color: var(--bark);
-    font-style: italic;
-    border-left: 3px solid var(--amber);
-  }
-
-  /* Side cards */
-  .exp-side {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .exp-small {
+  .exp-full {
+    margin-top: 2rem;
   }
 
   .exp-availability {
@@ -229,23 +193,30 @@
     color: var(--sand);
   }
 
-  .exp-availability .avail-header {
+  .avail-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .avail-inner > div {
+    flex: 1 1 200px;
   }
 
   .avail-list {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
     font-size: 0.9rem;
     color: #c8b59a;
-    margin-top: 0.5rem;
+    flex: 1 1 220px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
   .avail-list strong {
     color: var(--neon);
-  }
-
-  .exp-availability .display {
-    color: #e8a0a8 !important;
   }
 
   .exp-availability .btn-primary:hover {
@@ -259,6 +230,14 @@
     }
     .exp-card-top {
       flex-wrap: wrap;
+    }
+    .avail-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .exp-availability .btn-primary {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
